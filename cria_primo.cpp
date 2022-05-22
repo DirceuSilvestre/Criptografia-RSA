@@ -40,7 +40,7 @@ int main()
 void guarda_primo(int primo)
 {
     char texto[sizeof(int)];
-    ofstream fout("Chave_RSA.txt", ios::app);
+    ofstream fout("primos.txt", ios::app);
     sprintf(texto, "%d", primo);
     fout << texto << endl;
 }
