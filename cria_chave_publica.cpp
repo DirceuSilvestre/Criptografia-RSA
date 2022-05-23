@@ -11,10 +11,12 @@ int funcao_totiente(int primoX, int primoY);
 
 int chave_publica(int fi_de_x_totiente);
 
+void guarda_totiente_euler(int numero);
+
 int main()
 {
     int primo1, primo2, tamanho = 0, totiente, numero_euler;
-    char buffer[10], texto[sizeof(int)];
+    char buffer[10];
     ifstream fin("primos.txt");
 
     while (fin)
@@ -32,13 +34,20 @@ int main()
     }
 
     totiente = funcao_totiente(primo1, primo2);
-    cout << totiente << endl;
 
     numero_euler = chave_publica(totiente);
-    cout << numero_euler << endl;
 
+    guarda_totiente_euler(totiente);
+    guarda_totiente_euler(numero_euler);
+
+    return 0;
+}
+
+void guarda_totiente_euler(int numero)
+{
+    char texto[sizeof(int)];
     ofstream fout("chave_publica.txt", ios::app);
-    sprintf(texto, "%d", numero_euler);
+    sprintf(texto, "%d", numero);
     fout << texto << endl;
 }
 
