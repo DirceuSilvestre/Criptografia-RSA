@@ -12,6 +12,8 @@
 
     os primos são importantes pois a partir deles conseguiremos criar a chave pública e a chave privada
 
+    e os mesmos não devem ser divulgados, exatamente por isso terá um código em python colocando senha nos arquivos txt
+
 */
 
 using namespace std;
@@ -50,7 +52,7 @@ void cria_primo(int *onde_guardar)
     int gerador_de_numero;
     srand(time(NULL));
     gerador_de_numero = rand();
-    while (gerador_de_numero < 10000)
+    while (gerador_de_numero < 100)
     {
         gerador_de_numero = rand();
     }

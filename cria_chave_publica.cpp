@@ -13,6 +13,12 @@ int chave_publica(int fi_de_x_totiente);
 
 void guarda_totiente_euler(int numero);
 
+/*
+
+    os dois números do chave_publica.txt podem ser divulgados
+
+*/
+
 int main()
 {
     int primo1, primo2, tamanho = 0, totiente, numero_euler;
@@ -58,11 +64,12 @@ int funcao_totiente(int primoX, int primoY)
 
 int chave_publica(int fi_de_x_totiente)
 {
-    for (int i = fi_de_x_totiente - 2; i > 1; i--)
+    for (int i = 2;; i++)
     {
         if (__gcd(fi_de_x_totiente, i) == 1)
         {
             return i;
+            break;
         }
     }
 }
