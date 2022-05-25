@@ -43,18 +43,7 @@ void encriptografador()
 
     for (size_t i = 0; fun.get(letra[i]); i++)
     {
-        if (letra[i] >= 'A' && letra[i] <= 'Z')
-        {
-            numero = letra[i] - 'A';
-        }
-        else if (letra[i] >= 'a' && letra[i] <= 'z')
-        {
-            numero = letra[i] - 'a';
-        }
-        else
-        {
-            numero = letra[i] - 1;
-        }
+        numero = int(letra[i]);
 
         numero = pow(numero, numero_euler);
 

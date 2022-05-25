@@ -51,10 +51,11 @@ void cria_primo(int *onde_guardar)
 {
     int gerador_de_numero;
     srand(time(NULL));
-    gerador_de_numero = rand();
-    while (gerador_de_numero < 100)
+    gerador_de_numero = rand() % 100;
+    ;
+    while (gerador_de_numero > 100)
     {
-        gerador_de_numero = rand();
+        gerador_de_numero = rand() % 100;
     }
 
     while (1)
@@ -81,7 +82,7 @@ void cria_primo(int *onde_guardar)
         }
         else
         {
-            gerador_de_numero = rand();
+            gerador_de_numero = rand() % 100;
         }
     }
 }

@@ -1,14 +1,34 @@
 #include <bits/stdc++.h>
 #include <fstream>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
 // Protótipos
 
+int encontrando_d();
+
+void descriptografar(unsigned short int de);
+
+// Variavel Global
+
+int totiente;
+
+int main()
+{
+    int d;
+
+    d = encontrando_d();
+
+    descriptografar(d);
+
+    return 0;
+}
+
 int encontrando_d()
 {
-    int tamanho = 0, totiente, numero_euler, resto, divisor_anterior, divisor;
+    int tamanho = 0, numero_euler, resto, divisor_anterior, divisor, v;
     char buffer[10];
     ifstream fin("chave_publica.txt");
     while (fin)
@@ -34,13 +54,29 @@ int encontrando_d()
         divisor_anterior = resto;
         resto = divisor % divisor_anterior;
     }
+    v = 0;
+    while (((v * numero_euler) % totiente) != 1)
+    {
+        v++;
+    }
 
-    return 0;
+    return v;
 }
 
-int main()
+void descriptografar(unsigned short int de)
 {
-    encontrando_d();
-
-    return 0;
+    unsigned short int numero;
+    char buffer[10], letra;
+    stringstream aux;
+    ifstream fun("criptografado.txt");
+    ofstream fout("descriptografado.txt");
+    while (fun)
+    {
+        fun.getline(buffer, 10);
+        numero = atoi(buffer);
+        numero = pow(numero, de);
+        numero = numero % totiente;
+        letra = numero;
+        fout << letra;
+    }
 }
